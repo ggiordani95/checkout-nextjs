@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-interface ISingleTextInput {
-  title: string,
-  placeholder: string
+type ISingleTextInput = {
+  title?: string,
 }
 
-function SingleTextInput({title,placeholder}: ISingleTextInput) {
+function SingleTextInput({title}: ISingleTextInput) {
+
+  const [inputValue, setInputValue] = useState('');
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const result = event.target.value.replace(/\d+/g, '');
+        setInputValue(result);
+    };
+    
   return (
-    <div className='h-12 text-black mt-10 w-full'>
-      <p className='text-sm text-zinc-600 absolute translate-x-1 translate-y-[-12px] bg-white px-1'>{title}</p>
-      <input type="text" placeholder={placeholder} className='border-black text-sm border border-opacity-30 w-full h-full pl-2 focus:outline-blue-600 rounded-sm'/>
+    <div className='w-full'>
+      <p className='text-md text-zinc-600 font-medium p-1 pl-0 bg-white'>{title}</p>
+      <input type="text" value={inputValue} onChange={handleChange} className="border-black text-black text-sm border-2 border-opacity-10 shadow-lg w-full h-12 pl-2 focus:outline-blue-600 rounded-lg"/>
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 
-interface IHeaderText {
+type THeaderText = {
     text: string
 }
 
-function HeaderText({text}: IHeaderText) {
+function HeaderText({text}: THeaderText) {
   return (
     <h1 className='text-lg font-bold text-slate-950'>{text}</h1>
   )

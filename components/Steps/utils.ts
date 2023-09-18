@@ -1,26 +1,32 @@
-import ShippingAddress from "./ShippingAddress"
+import ShippingInfo from "./ShippingInfo"
 import React from 'react'
+
+// Array que coordena números dos steps
 
 const stepValues = [1, 2, 3] as const;
 
+// Tipagem do state steps
+
 export type StepValue = typeof stepValues[number];
 
-interface ISteps {
+// Components que cada step vai retornar
+
+type TSteps = {
     id: number,
     component: React.ReactNode
 }
 
-export const steps: Array<ISteps> = [
+export const steps: Array<TSteps> = [
     {
         id: 1,
-        component: React.createElement(ShippingAddress)
+        component: React.createElement(ShippingInfo)
     },
     {
         id: 2,
-        component: React.createElement(ShippingAddress)
+        component: React.createElement(ShippingInfo)
     },
     {
         id: 3,
-        component: React.createElement(ShippingAddress)
+        component: React.createElement(ShippingInfo)
     }
 ]
