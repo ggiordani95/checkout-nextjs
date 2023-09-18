@@ -27,6 +27,6 @@ export const steps: Array<TSteps> = [
     },
     {
         id: 3,
-        component: React.createElement(ShippingInfo)
+        component: null
     }
 ]

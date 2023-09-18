@@ -16,7 +16,7 @@ function SingleTextInput({title}: ISingleTextInput) {
   return (
     <div className='w-full'>
       <p className='text-md text-zinc-600 font-medium p-1 pl-0 bg-white'>{title}</p>
-      <input type="text" value={inputValue} onChange={handleChange} className="border-black text-black text-sm border-2 border-opacity-10 shadow-lg w-full h-12 pl-2 focus:outline-blue-600 rounded-lg"/>
+      <input type="text" value={inputValue} onChange={handleChange} className="border-black text-black text-sm border-2 border-opacity-10 shadow-md w-full h-12 pl-2 focus:outline-blue-600 rounded-lg"/>
     </div>
   )
 }

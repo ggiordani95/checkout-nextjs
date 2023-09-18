@@ -6,7 +6,7 @@ import CardInformation from "../CardInformation";
 function ShippingInfo() {
   return (
     <section className="w-full" id="shipping">
-      <HeaderText text="Stripe de Pagamento" />
+      <HeaderText text="Pagar com o cartão" />
       <div className="my-6">
         <SingleTextInput title={"Email"} />
       </div>
