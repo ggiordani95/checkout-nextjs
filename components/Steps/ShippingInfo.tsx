@@ -1,7 +1,6 @@
 import React from "react";
 import HeaderText from "../HeaderText";
 import SingleTextInput from "../SingleTextInput";
-import SingleNumberInput from "../SingleNumberInput";
 import CardInformation from "../CardInformation";
 
 function ShippingInfo() {
@@ -13,6 +12,12 @@ function ShippingInfo() {
       </div>
       <div className="my-6">
         <CardInformation/>
+      </div>
+      <div className="my-6">
+        <SingleTextInput title={"Nome no cartão"} />
+      </div>
+      <div className="my-6">
+        <SingleTextInput title={"País ou região"} />
       </div>
     </section>
   );

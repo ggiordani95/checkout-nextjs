@@ -5,7 +5,7 @@ function CardInformation() {
   return (
     <>
       <p className="text-md text-zinc-600 font-medium bg-white p-1 pl-0">
-        Informações do Cartão
+        Informações do cartão
       </p>
       <div className="">
         <SingleNumberInput placeholder={"1234 1234 1234 1234"} inputTailwind={'rounded-tr-md rounded-tl-md'}/>
