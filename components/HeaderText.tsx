@@ -1,13 +1,19 @@
-import React from 'react'
+import React from "react";
 
 type THeaderText = {
-    text: string
-}
+  text: string;
+};
 
-function HeaderText({text}: THeaderText) {
+function HeaderText({ text }: THeaderText) {
   return (
-    <h1 className='text-2xl font-bold text-slate-950'>{text}</h1>
-  )
+    <div className="flex flex-row w-full just-center items-center">
+      <span className="h-0.5 w-full bg-slate-200 rounded-full"></span>
+      <h1 className="text-md text-slate-400 font-light w-full text-center mx-4">
+        {text}
+      </h1>
+      <span className="h-0.5 w-full bg-slate-200 rounded-full"></span>
+    </div>
+  );
 }
 
-export default HeaderText
+export default HeaderText;
