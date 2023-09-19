@@ -4,7 +4,7 @@ import SingleNumberInput from "../SingleNumberInput";
 function CardInformation() {
   return (
     <>
-      <p className="text-md text-zinc-600 font-medium bg-white p-1 pl-0">
+      <p className="text-sm text-zinc-600 font-medium bg-white p-1 pl-0">
         Informações do cartão
       </p>
       <div className="">
