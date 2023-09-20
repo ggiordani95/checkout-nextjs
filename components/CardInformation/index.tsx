@@ -1,6 +1,8 @@
 import React from "react";
-import SingleNumberInput from "../SingleNumberInput";
 import Image from "next/image";
+import DateCardInput from "../Inputs/DateCardInput";
+import CVCInput from "../Inputs/CVCInput";
+import CardNumber from "../Inputs/CardNumber";
 
 function CardInformation() {
   return (
@@ -10,9 +12,10 @@ function CardInformation() {
       </p>
       <div className="relative">
         <div className="h-full">
-          <SingleNumberInput
+          <CardNumber
             placeholder={"1234 1234 1234 1234"}
             inputTailwind={"rounded-tr-md rounded-tl-md"}
+            id={"number"}
           />
           <div className="absolute right-4 top-0 flex flex-row gap-1 justify-center items-center h-1/2">
             <Image
@@ -31,15 +34,15 @@ function CardInformation() {
         </div>
 
         <div className="flex flex-row">
-          <SingleNumberInput
+          <DateCardInput
             placeholder={"MM/YY"}
             inputTailwind={"rounded-bl-md border-t-0 border-r-1"}
-            dateFromCard={true}
+            id={"date"}
           />
-          <SingleNumberInput
+          <CVCInput
             placeholder={"CVC"}
             inputTailwind={"rounded-br-md border-t-0 border-l-0"}
-            cvcFromCard={true}
+            id={"cvc"}
           />
         </div>
       </div>

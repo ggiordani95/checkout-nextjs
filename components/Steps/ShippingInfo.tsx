@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import HeaderText from "../HeaderText";
-import SingleTextInput from "../SingleTextInput";
+import SingleTextInput from "../Inputs/SingleTextInput";
 import CardInformation from "../CardInformation";
 import CustomButton from "../CustomButton";
 
 function ShippingInfo() {
-  
   const [isLoadingPayment, setIsLoadingPayment] = useState<boolean>(false);
 
   return (
