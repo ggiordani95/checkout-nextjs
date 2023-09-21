@@ -7,8 +7,7 @@ export default function Checkout() {
   const [currentStep, setCurrentStep] = useState<StepValue>(1);
 
   return (
-    <section className="p-4 sm:p-6 md:p-12 lg:p-16 xl:p-24 2xl:p-36 w-full shadow-md rounded-lg">
-      <CheckoutSteps />
+    <section className="p-4 sm:p-6 md:p-12 lg:p-16 xl:p-24 2xl:px-48 w-full shadow-md rounded-lg flex flex-col justify-center items-center">
       {steps && steps.find((step) => step.id === currentStep)?.component}
     </section>
   );

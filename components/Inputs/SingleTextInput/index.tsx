@@ -23,7 +23,7 @@ function SingleTextInput({ title, placeholder }: ISingleTextInput) {
         value={inputValue}
         placeholder={placeholder}
         onChange={handleChange}
-        className="border-black text-black text-md border-2 border-opacity-10 shadow-md w-full h-12 pl-4 focus:outline-blue-600 rounded-lg"
+        className="border-black text-black text-md border-2 border-opacity-10 shadow-md w-full h-14 pl-4 focus:outline-blue-600 rounded-lg"
       />
     </div>
   );

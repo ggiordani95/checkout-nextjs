@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import HeaderText from "../HeaderText";
 import SingleTextInput from "../Inputs/SingleTextInput";
 import CardInformation from "../CardInformation";
 import CustomButton from "../CustomButton";
@@ -9,26 +8,25 @@ function ShippingInfo() {
 
   return (
     <section className="w-full" id="shipping">
-      <HeaderText text="Pagar com o cartão" />
-      <div className="my-6">
+      <div className="my-4">
         <SingleTextInput
           title={"Email"}
           placeholder="Digite seu email de uso..."
         />
       </div>
-      <div className="my-6">
+      <div className="my-4">
         <CardInformation />
       </div>
-      <div className="my-6">
+      <div className="my-4">
         <SingleTextInput
           title={"Nome no cartão"}
           placeholder="Digite o nome impresso no cartão..."
         />
       </div>
-      <div className="my-6">
+      <div className="my-4">
         <SingleTextInput title={"País ou região"} />
       </div>
-      <div className="my-12">
+      <div className="my-8">
         <CustomButton
           clicked={isLoadingPayment}
           onClick={() => setIsLoadingPayment(true)}

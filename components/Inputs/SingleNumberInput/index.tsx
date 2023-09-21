@@ -37,7 +37,7 @@ function SingleNumberInput({
         value={inputValue}
         onChange={handleChange}
         placeholder={placeholder}
-        className={`border-black text-md text-black border-2 border-opacity-10 shadow-md w-full h-12 pl-4 focus:outline-blue-600 ${inputTailwind}`}
+        className={`border-black text-md text-black border-2 border-opacity-10 shadow-md w-full h-16 pl-4 focus:outline-blue-600 ${inputTailwind}`}
       />
     </div>
   );

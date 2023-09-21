@@ -19,7 +19,7 @@ function CustomButton({ onClick, priceToPay, clicked }: TCustomButton) {
   }, [clicked]);
 
   return (
-    <button className="h-16 rounded-lg w-full  bg-blue-700" onClick={onClick}>
+    <button className="h-16 rounded-lg w-full  bg-blue-800" onClick={onClick}>
       {isLoading ? (
         <ClipLoader color="#8e78ff" loading={true} size={20} className="mt-2" />
       ) : (
