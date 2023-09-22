@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TCardNumber } from "./types";
+import { PIN_CARDS, TCardNumber } from "./types";
 import Image from "next/image";
 
 function CardNumber({ placeholder, inputTailwind, id }: TCardNumber) {
@@ -7,15 +7,6 @@ function CardNumber({ placeholder, inputTailwind, id }: TCardNumber) {
   const [cardFlag, setCardFlag] = useState<string | null>(null);
 
   const maxLength = 16;
-
-  type CardType = {
-    [key: string]: string;
-  };
-
-  const PIN_CARDS: CardType = {
-    VISA: "4",
-    MASTERCARD: "5",
-  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let result = event.target.value;

@@ -8,7 +8,7 @@ function ShippingInfo() {
 
   return (
     <section className="w-full" id="shipping">
-      <div className="my-4">
+      <div className="mb-4">
         <SingleTextInput
           title={"Email"}
           placeholder="Digite seu email de uso..."
@@ -26,7 +26,7 @@ function ShippingInfo() {
       <div className="my-4">
         <SingleTextInput title={"País ou região"} />
       </div>
-      <div className="my-8">
+      <div className="my-12">
         <CustomButton
           clicked={isLoadingPayment}
           onClick={() => setIsLoadingPayment(true)}

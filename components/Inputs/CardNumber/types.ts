@@ -3,3 +3,12 @@ export type TCardNumber = {
     inputTailwind?: string;
     id: string;
 };
+
+export type CardType = {
+    [key: string]: string;
+  };
+
+export const PIN_CARDS: CardType = {
+    VISA: "4",
+    MASTERCARD: "5",
+  };
