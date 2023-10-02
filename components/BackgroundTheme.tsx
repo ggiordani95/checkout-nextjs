@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import jbl from "../public/assets/jbl.jpg";
-import logo from "../public/assets/jblogo.jpg";
 
 function BackgroundTheme() {
   return (
@@ -13,13 +12,13 @@ function BackgroundTheme() {
             Headset super confortável
           </h1>
         </div>
-
         <Image
           src={jbl}
-          width={400}
-          height={400}
+          width={200}
+          height={200}
           alt={"t-shirt"}
-          className="rounded-full"
+          priority={true}
+          className="rounded-sm"
         />
         <h1 className="text-xl text-gray-600 font-medium my-10">
           Preço: R$ 250,00

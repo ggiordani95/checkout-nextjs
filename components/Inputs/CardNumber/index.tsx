@@ -1,38 +1,11 @@
-import React, { useState } from "react";
-import { PIN_CARDS, TCardNumber } from "./types";
+import React from "react";
+import { TCardNumber } from "./types";
 import Image from "next/image";
+import { useCardNumberFunctions } from "./CardNumberFunctions";
 
 function CardNumber({ placeholder, inputTailwind, id }: TCardNumber) {
-  const [inputValue, setInputValue] = useState<string>("");
-  const [cardFlag, setCardFlag] = useState<string | null>(null);
-
-  const maxLength = 16;
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let result = event.target.value;
-    if (event.target.value === "") setCardFlag(null);
-    for (const CARD in PIN_CARDS) {
-      if (result === PIN_CARDS[CARD]) {
-        setCardFlag(CARD.toString());
-        console.log(cardFlag);
-        break;
-      }
-    }
-    result = event.target.value.replace(/\D/g, "");
-    if (result.length === maxLength) {
-      const modifiedValue =
-        result.slice(0, maxLength / 4) +
-        " " +
-        result.slice(4, 8) +
-        " " +
-        result.slice(8, 12) +
-        " " +
-        result.slice(12, 16);
-      result = modifiedValue;
-    }
-    setInputValue(result);
-  };
-
+  const { inputValue, cardFlag, handleChange, maxLength } =
+    useCardNumberFunctions();
   return (
     <div className="relative">
       <div className="h-full">
@@ -50,9 +23,11 @@ function CardNumber({ placeholder, inputTailwind, id }: TCardNumber) {
         <div className="absolute right-4 top-0 flex flex-row gap-1 justify-center items-center h-full">
           <Image
             src="https://js.stripe.com/v3/fingerprinted/img/visa-729c05c240c4bdb47b03ac81d9945bfe.svg"
+            style={{ width: "auto", height: "auto" }}
             width={32}
             height={32}
             alt={"visa"}
+            priority={true}
             className={`${
               cardFlag === "VISA" || cardFlag === null
                 ? "grayscale-1"
@@ -63,7 +38,9 @@ function CardNumber({ placeholder, inputTailwind, id }: TCardNumber) {
             src="https://js.stripe.com/v3/fingerprinted/img/mastercard-4d8844094130711885b5e41b28c9848f.svg"
             width={32}
             height={32}
+            style={{ width: "auto", height: "auto" }}
             alt={"mastercard"}
+            priority={true}
             className={`${
               cardFlag === "MASTERCARD" || cardFlag === null
                 ? "grayscale-1"

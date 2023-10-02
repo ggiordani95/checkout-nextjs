@@ -7,7 +7,7 @@ function ShippingInfo() {
   const [isLoadingPayment, setIsLoadingPayment] = useState<boolean>(false);
 
   return (
-    <section className="w-full" id="shipping">
+    <section className="w-full 2xl:px-32" id="shipping">
       <div className="mb-4">
         <SingleTextInput
           title={"Email"}

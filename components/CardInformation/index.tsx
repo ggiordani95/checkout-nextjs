@@ -9,13 +9,11 @@ function CardInformation() {
       <p className="text-sm text-zinc-600 font-medium bg-white p-1 pl-0">
         Informações do cartão
       </p>
-
       <CardNumber
         placeholder={"1234 1234 1234 1234"}
         inputTailwind={"rounded-tr-md rounded-tl-md"}
         id={"number"}
       />
-
       <div className="flex flex-row">
         <DateCardInput
           placeholder={"MM/YY"}

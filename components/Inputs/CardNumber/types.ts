@@ -11,4 +11,4 @@ export type CardType = {
 export const PIN_CARDS: CardType = {
     VISA: "4",
     MASTERCARD: "5",
-  };
+};
