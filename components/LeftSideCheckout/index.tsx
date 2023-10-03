@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import volvo from "../../public/assets/volvo.png";
+import airpods from "../../public/assets/airpods.png";
 import useSocials from "./utils/useIcons";
 import { TSocial } from "./types";
 
@@ -34,7 +34,7 @@ function LeftSideCheckout() {
       </div>
       <div className="flex mb-0 w-full justify-start flex-row gap-4 p-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 md:justify-center items-center lg:mb-24">
         <Image
-          src={volvo}
+          src={airpods}
           width={85}
           height={85}
           alt={"airpods"}
@@ -43,7 +43,7 @@ function LeftSideCheckout() {
         />
         <div className="py-4 rounded-t-2xl">
           <h1 className="text-xl text-gray-400 font-semibold select-none">
-            AIRPODS
+            AirPods 3a geração
           </h1>
           <h1 className="text-md text-gray-500 font-regular select-none">
             Headset super confortável
