@@ -1,5 +1,6 @@
-import ShippingInfo from "./ShippingInfo"
-import React, { SetStateAction } from 'react'
+import Personal from "./Personal";
+import Shipping from "./Shipping"
+import React from 'react'
 
 // Array que coordena números dos steps
 
@@ -20,12 +21,12 @@ type TSteps = {
 export const steps: Array<TSteps> = [
     {
         id: 1,
-        component: React.createElement(ShippingInfo),
+        component: React.createElement(Personal),
         button_text: 'Confirmar dados'
     },
     {
         id: 2,
-        component: React.createElement(ShippingInfo),
+        component: React.createElement(Shipping),
         button_text: 'Pagar R$250,00'
     },
     {
@@ -37,5 +38,4 @@ export const steps: Array<TSteps> = [
 
 export const countryOptions = [
     { code: "br", name: "Brasil", flag: "/flags/brazil.png" },
-
 ];

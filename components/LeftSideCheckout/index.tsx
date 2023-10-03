@@ -8,15 +8,15 @@ function LeftSideCheckout() {
   const { socials } = useSocials();
 
   return (
-    <section className="relative w-full shadow-md flex flex-col justify-center items-center bg-gray-800">
-      <div className="text-gray-400 absolute top-10 left-10 text-sm flex gap-1 flex-row justify-center items-center">
-        <div className="hover:scale-105 transition-all duration-100 hover:text-white">
+    <section className="p-1 sm:p-0 relative w-full shadow-md flex flex-row-reverse sm:flex-col  justify-center items-center bg-gray-800">
+      <div className="text-gray-400 sm:absolute top-10 left-10 text-sm flex gap-1 flex-row justify-center items-center">
+        <div className="hover:scale-105 transition-all duration-100 hidden hover:text-white md:block">
           <h1>Checkout por </h1>
           <h2 className="">
             <b>Gustavo Giordani</b>
           </h2>
         </div>
-        <div className="ml-4 flex flex-row bg-slate-700 p-4 gap-4 rounded-full">
+        <div className="md:ml-4 flex flex-row bg-slate-700 p-4 gap-4 rounded-full">
           {socials.map((social: TSocial) => (
             <>
               <div className="flex justify-center items-center">
@@ -26,9 +26,6 @@ function LeftSideCheckout() {
                   className="flex flex-row gap-2 justify-center items-center"
                 >
                   {social.icon}
-                  <p className="text-sm hover:text-white hover:scale-105">
-                    {social.name}
-                  </p>
                 </a>
               </div>
             </>

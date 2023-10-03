@@ -5,7 +5,7 @@ import CardInformation from "../../CardInformation";
 import CountryInput from "../../Inputs/CountryInput";
 import { countryOptions } from "../utils";
 
-function ShippingInfo() {
+function Shipping() {
   const handleSelectCountry = (country: any) => {
     console.log("Selected country:", country);
   };
@@ -35,4 +35,4 @@ function ShippingInfo() {
   );
 }
 
-export default ShippingInfo;
+export default Shipping;

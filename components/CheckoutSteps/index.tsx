@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StepValue } from "../Steps/utils";
-
-type TCheckoutSteps = {
-  currentStep: StepValue | number;
-};
+import useGetSteps from "./useGetSteps";
+import { TCheckoutSteps } from "./types";
 
 function CheckoutSteps({ currentStep }: TCheckoutSteps) {
   const [step, setStep] = useState<StepValue | number>(0);
@@ -12,17 +10,10 @@ function CheckoutSteps({ currentStep }: TCheckoutSteps) {
     setStep(currentStep);
   }, [currentStep]);
 
-  function getStepClass(
-    stepNumber: StepValue,
-    currentStep: StepValue | number
-  ) {
-    return `h-8 w-8 flex ${
-      stepNumber === currentStep ? "bg-gray-800" : "bg-zinc-200"
-    } rounded-full justify-center items-center`;
-  }
+  const { getStepClass } = useGetSteps();
 
   return (
-    <div className="flex flex-row items-center py-12 px-4 2xl:px-48 mt-12 select-none">
+    <div className="flex flex-row items-center py-12 px-4 2xl:px-32 mt-12 select-none">
       <div className="flex flex-col justify-center items-center gap relative">
         <div className={getStepClass(0, step)}>
           <h2>1</h2>
