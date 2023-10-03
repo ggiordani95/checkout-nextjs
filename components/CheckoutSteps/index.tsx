@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StepValue } from "./Steps/utils";
+import { StepValue } from "../Steps/utils";
 
 type TCheckoutSteps = {
   currentStep: StepValue | number;

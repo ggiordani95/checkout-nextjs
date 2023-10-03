@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import { FiChevronLeft } from "react-icons/fi";
-import CheckoutSteps from "./CheckoutSteps";
-import { steps } from "./Steps/utils";
-import useSteps from "./Steps";
-import CustomButton from "./Buttons/CustomButton/CustomButton";
+import CheckoutSteps from "../CheckoutSteps/";
+import { steps } from "../Steps/utils";
+import useSteps from "../Steps";
+import CustomButton from "../Buttons/CustomButton/CustomButton";
 
 export default function Checkout() {
   const { handlePreviousStep, handleNextStep, currentStep, isLoadingStep } =
@@ -23,11 +23,13 @@ export default function Checkout() {
       <CheckoutSteps currentStep={currentStep} />
       {steps && steps[currentStep].component}
       <div className="w-full 2xl:px-32 py-12">
-        <CustomButton
-          clicked={isLoadingStep}
-          onClick={() => handleNextStep()}
-          priceToPay="R$250,00"
-        />
+        {steps[currentStep].button_text && (
+          <CustomButton
+            clicked={isLoadingStep}
+            onClick={() => handleNextStep()}
+            text={steps[currentStep].button_text}
+          />
+        )}
       </div>
     </section>
   );

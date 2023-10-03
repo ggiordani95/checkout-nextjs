@@ -16,7 +16,7 @@ function LeftSideCheckout() {
             <b>Gustavo Giordani</b>
           </h2>
         </div>
-        <div className="ml-4 flex flex-row bg-slate-700 p-4 gap-2 rounded-full">
+        <div className="ml-4 flex flex-row bg-slate-700 p-4 gap-4 rounded-full">
           {socials.map((social: TSocial) => (
             <>
               <div className="flex justify-center items-center">

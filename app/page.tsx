@@ -1,4 +1,4 @@
-import Checkout from "@/components/Checkout";
+import Checkout from "@/components/Checkout/Checkout";
 import LeftSideCheckout from "@/components/LeftSideCheckout";
 
 export default function Home() {

@@ -3,11 +3,11 @@ import { ClipLoader } from "react-spinners";
 
 type TCustomButton = {
   onClick: () => void;
-  priceToPay: string;
+  text: string | null;
   clicked: boolean;
 };
 
-function CustomButton({ onClick, priceToPay, clicked }: TCustomButton) {
+function CustomButton({ onClick, text, clicked }: TCustomButton) {
   const [isLoading, setisLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function CustomButton({ onClick, priceToPay, clicked }: TCustomButton) {
       {isLoading ? (
         <ClipLoader color="#8e78ff" loading={true} size={20} className="mt-2" />
       ) : (
-        <p className="text-blue-200 text-md font-normal">Pagar {priceToPay}</p>
+        <p className="text-blue-200 text-md font-normal">{text}</p>
       )}
     </button>
   );
