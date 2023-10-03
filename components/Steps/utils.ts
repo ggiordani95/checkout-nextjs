@@ -30,3 +30,8 @@ export const steps: Array<TSteps> = [
         component: null
     }
 ]
+
+export const countryOptions = [
+    { code: "br", name: "Brasil", flag: "/flags/brazil.png" },
+
+];

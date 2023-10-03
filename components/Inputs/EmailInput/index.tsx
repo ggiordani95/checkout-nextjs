@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-type ISingleTextInput = {
+type IEmailInput = {
   title?: string;
   placeholder?: string;
 };
 
-function SingleTextInput({ title, placeholder }: ISingleTextInput) {
+function EmailInput({ title, placeholder }: IEmailInput) {
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,4 +29,4 @@ function SingleTextInput({ title, placeholder }: ISingleTextInput) {
   );
 }
 
-export default SingleTextInput;
+export default EmailInput;
