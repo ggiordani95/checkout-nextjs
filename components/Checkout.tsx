@@ -8,7 +8,7 @@ export default function Checkout() {
     <section className="p-4 sm:p-6 md:p-12 lg:p-16  w-full shadow-md rounded-lg flex flex-col justify-center">
       <div className="flex flex-row items-center py-12 px-4 2xl:px-48">
         <div className="flex flex-col justify-center items-center gap relative">
-          <div className="h-8 w-8 flex bg-blue-600 rounded-full justify-center items-center">
+          <div className="h-8 w-8 flex bg-gray-800 rounded-full justify-center items-center">
             <h2>1</h2>
           </div>
           <h1 className="absolute bottom-10 text-sm text-zinc-900 font-medium">
