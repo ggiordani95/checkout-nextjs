@@ -30,7 +30,7 @@ export default function Checkout() {
     <section className="relative p-4 sm:p-6 md:p-12 lg:p-16  w-full shadow-md rounded-lg flex flex-col justify-center">
       <button
         onClick={handlePreviousStep}
-        className="h-12 w-12 rounded-full bg-gray-700 absolute top-8 flex justify-center items-center"
+        className="h-10 w-10 rounded-xl bg-gray-700 absolute top-6 flex justify-center items-center"
       >
         <FiChevronLeft size={22} color={"white"} className="mr-1" />
       </button>
