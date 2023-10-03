@@ -40,7 +40,7 @@ function CountryInput({ options, onSelect, title }: ICountryInput) {
             <h1>{selectedOption.name}</h1>
           </div>
         ) : (
-          <h1 className="text-zinc-400 font-normal w-full text-start ml-4">
+          <h1 className="text-zinc-400 font-normal w-full text-start">
             Selecione seu país
           </h1>
         )}

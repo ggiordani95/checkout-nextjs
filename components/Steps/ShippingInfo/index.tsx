@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-import EmailInput from "../Inputs/EmailInput";
-import CardInformation from "../CardInformation";
-import CustomButton from "../CustomButton";
-import CountryInput from "../Inputs/CountryInput";
-import { countryOptions } from "./utils";
+import React from "react";
+import EmailInput from "../../Inputs/EmailInput";
+import CardInformation from "../../CardInformation";
+
+import CountryInput from "../../Inputs/CountryInput";
+import { countryOptions } from "../utils";
 
 function ShippingInfo() {
-  const [isLoadingPayment, setIsLoadingPayment] = useState<boolean>(false);
-
   const handleSelectCountry = (country: any) => {
     console.log("Selected country:", country);
   };
+
   return (
     <section className="w-full 2xl:px-32" id="shipping">
       <div className="mb-4">
@@ -30,13 +29,6 @@ function ShippingInfo() {
           title={"País ou Região"}
           options={countryOptions}
           onSelect={handleSelectCountry}
-        />
-      </div>
-      <div className="my-12">
-        <CustomButton
-          clicked={isLoadingPayment}
-          onClick={() => setIsLoadingPayment(true)}
-          priceToPay="R$250,00"
         />
       </div>
     </section>

@@ -1,40 +1,48 @@
 "use client";
 import React, { useState } from "react";
+import { FiChevronLeft } from "react-icons/fi";
+import CheckoutSteps from "./CheckoutSteps";
 import { StepValue, steps } from "./Steps/utils";
+import CustomButton from "./CustomButton";
+
 export default function Checkout() {
-  const [currentStep, setCurrentStep] = useState<StepValue>(1);
+  const [currentStep, setCurrentStep] = useState<StepValue | number>(1);
+  const [isLoadingPayment, setIsLoadingPayment] = useState<boolean>(false);
+
+  function handleNextStep() {
+    if (currentStep === 3) return;
+    const current = currentStep;
+    setIsLoadingPayment(true);
+    setTimeout(() => {
+      setCurrentStep((prev: any) => prev + 1);
+      setIsLoadingPayment(false);
+    }, 400);
+  }
+  function handlePreviousStep() {
+    if (currentStep === 1) return;
+    const current = currentStep;
+    setTimeout(() => {
+      setCurrentStep((prev: any) => prev - 1);
+    }, 400);
+  }
 
   return (
-    <section className="p-4 sm:p-6 md:p-12 lg:p-16  w-full shadow-md rounded-lg flex flex-col justify-center">
-      <div className="flex flex-row items-center py-12 px-4 2xl:px-48">
-        <div className="flex flex-col justify-center items-center gap relative">
-          <div className="h-8 w-8 flex bg-gray-800 rounded-full justify-center items-center">
-            <h2>1</h2>
-          </div>
-          <h1 className="absolute bottom-10 text-sm text-zinc-900 font-medium">
-            Confirmar
-          </h1>
-        </div>
-        <div className="w-full h-1 bg-zinc-100" />
-        <div className="flex flex-col justify-center items-center gap relative">
-          <div className="h-8 w-8 flex bg-zinc-200 rounded-full justify-center items-center">
-            <h2>2</h2>
-          </div>
-          <h1 className="absolute bottom-10 text-sm text-zinc-900 font-medium">
-            Pagamento
-          </h1>
-        </div>
-        <div className="w-full h-1 bg-zinc-100"></div>
-        <div className="flex flex-col justify-center items-center gap relative">
-          <div className="h-8 w-8 flex bg-zinc-200 rounded-full justify-center items-center">
-            <h2>3</h2>
-          </div>
-          <h1 className="absolute bottom-10 text-sm text-zinc-900 font-medium">
-            Status
-          </h1>
-        </div>
-      </div>
+    <section className="relative p-4 sm:p-6 md:p-12 lg:p-16  w-full shadow-md rounded-lg flex flex-col justify-center">
+      <button
+        onClick={handlePreviousStep}
+        className="h-12 w-12 rounded-full bg-gray-700 absolute top-8 flex justify-center items-center"
+      >
+        <FiChevronLeft size={22} color={"white"} className="mr-1" />
+      </button>
+      <CheckoutSteps currentStep={currentStep} />
       {steps && steps.find((step) => step.id === currentStep)?.component}
+      <div className="w-full 2xl:px-32 py-12">
+        <CustomButton
+          clicked={isLoadingPayment}
+          onClick={() => handleNextStep()}
+          priceToPay="R$250,00"
+        />
+      </div>
     </section>
   );
 }

@@ -1,5 +1,5 @@
 import ShippingInfo from "./ShippingInfo"
-import React from 'react'
+import React, { SetStateAction } from 'react'
 
 // Array que coordena números dos steps
 
