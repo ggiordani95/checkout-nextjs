@@ -12,7 +12,6 @@ function CustomButton({ onClick, priceToPay, clicked }: TCustomButton) {
 
   useEffect(() => {
     if (clicked) setisLoading(true);
-    else return;
     return () => {
       setisLoading(false);
     };

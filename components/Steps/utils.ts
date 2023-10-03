@@ -3,7 +3,7 @@ import React, { SetStateAction } from 'react'
 
 // Array que coordena números dos steps
 
-const stepValues = [1, 2, 3] as const;
+const stepValues = [0, 1, 2] as const;
 
 // Tipagem do state steps
 
@@ -27,7 +27,7 @@ export const steps: Array<TSteps> = [
     },
     {
         id: 3,
-        component: null
+        component: null 
     }
 ]
 

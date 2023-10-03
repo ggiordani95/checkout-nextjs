@@ -6,7 +6,7 @@ type TCheckoutSteps = {
 };
 
 function CheckoutSteps({ currentStep }: TCheckoutSteps) {
-  const [step, setStep] = useState<StepValue | number>(1);
+  const [step, setStep] = useState<StepValue | number>(0);
 
   useEffect(() => {
     setStep(currentStep);
@@ -22,9 +22,9 @@ function CheckoutSteps({ currentStep }: TCheckoutSteps) {
   }
 
   return (
-    <div className="flex flex-row items-center py-12 px-4 2xl:px-48 mt-12">
+    <div className="flex flex-row items-center py-12 px-4 2xl:px-48 mt-12 select-none">
       <div className="flex flex-col justify-center items-center gap relative">
-        <div className={getStepClass(1, step)}>
+        <div className={getStepClass(0, step)}>
           <h2>1</h2>
         </div>
         <h1 className="absolute bottom-10 text-sm text-zinc-900 font-medium">
@@ -33,7 +33,7 @@ function CheckoutSteps({ currentStep }: TCheckoutSteps) {
       </div>
       <div className="w-full h-1 bg-zinc-100" />
       <div className="flex flex-col justify-center items-center gap relative">
-        <div className={getStepClass(2, step)}>
+        <div className={getStepClass(1, step)}>
           <h2>2</h2>
         </div>
         <h1 className="absolute bottom-10 text-sm text-zinc-900 font-medium">
@@ -42,7 +42,7 @@ function CheckoutSteps({ currentStep }: TCheckoutSteps) {
       </div>
       <div className="w-full h-1 bg-zinc-100"></div>
       <div className="flex flex-col justify-center items-center gap relative">
-        <div className={getStepClass(3, step)}>
+        <div className={getStepClass(2, step)}>
           <h2>3</h2>
         </div>
         <h1 className="absolute bottom-10 text-sm text-zinc-900 font-medium">
