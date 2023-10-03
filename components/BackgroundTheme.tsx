@@ -12,11 +12,13 @@ function BackgroundTheme() {
           height={85}
           alt={"airpods"}
           priority={true}
-          className="rounded-3xl"
+          className="rounded-3xl select-none"
         />
         <div className="py-4 rounded-t-2xl">
-          <h1 className="text-xl text-gray-400 font-semibold">AIRPODS</h1>
-          <h1 className="text-md text-gray-500 font-regular">
+          <h1 className="text-xl text-gray-400 font-semibold select-none">
+            AIRPODS
+          </h1>
+          <h1 className="text-md text-gray-500 font-regular select-none">
             Headset super confortável
           </h1>
         </div>
