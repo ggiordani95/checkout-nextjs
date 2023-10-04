@@ -2,12 +2,13 @@ import React from "react";
 import apple from "../../../public/assets/apple.jpg";
 import Image from "next/image";
 import EmailInput from "@/components/Inputs/EmailInput";
+import useSteps from "..";
 
 function Personal() {
   return (
     <div className="w-full h-full 2xl:px-32 py-12">
       <div className="flex flex-col  h-full justify-start">
-        <div className="flex flex-row items-center justify-center  gap-4 border-b-slate-200 border-t-0 border-l-0 border-r-0 py-8 border">
+        <div className="flex flex-row items-center justify-center gap-4 border-b-slate-200 border-t-0 border-l-0 border-r-0 py-8 border">
           <Image
             src={apple}
             width={32}

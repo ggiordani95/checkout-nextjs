@@ -11,23 +11,14 @@ import Loader from "../Loader";
 export default function Checkout() {
   const [isCheckoutApproved, setIsCheckoutApproved] = useState<boolean>(false);
 
-  const {
-    handlePreviousStep,
-    handleNextStep,
-    currentStep,
-    isLoadingStep,
-    isApproved,
-  } = useSteps({ approved: isCheckoutApproved });
+  const { handlePreviousStep, handleNextStep, currentStep, isLoadingStep } =
+    useSteps();
+
+  const CurrentStepComponent = steps?.[currentStep]?.component;
 
   useEffect(() => {
-    if (isApproved) setIsCheckoutApproved(isApproved);
-    const timed = setTimeout(() => {
-      setIsCheckoutApproved(false);
-    }, 1000);
-    return () => {
-      clearTimeout(timed);
-    };
-  }, [isApproved]);
+    setIsCheckoutApproved(isCheckoutApproved);
+  }, [isCheckoutApproved]);
 
   return (
     <section className="w-full justify-center">
@@ -41,12 +32,14 @@ export default function Checkout() {
           </button>
         )}
         <CheckoutSteps currentStep={currentStep} />
-        {steps && !isLoadingStep ? steps[currentStep].component : <Loader />}
+        {steps && !isLoadingStep ? CurrentStepComponent : <Loader />}
         <div className="w-full 2xl:px-32 py-8">
           {steps[currentStep].button_text && (
             <CheckoutButton
               approved={isLoadingStep}
-              onClick={() => handleNextStep()}
+              onClick={() => {
+                handleNextStep(isCheckoutApproved);
+              }}
               text={steps[currentStep].button_text}
             />
           )}

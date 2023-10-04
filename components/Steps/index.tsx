@@ -1,35 +1,28 @@
 import { useEffect, useState } from "react";
 import { StepValue } from "./utils";
 
-function useSteps({ approved }: { approved: boolean }) {
+function useSteps() {
   const [currentStep, setCurrentStep] = useState<StepValue | number>(0);
   const [isLoadingStep, setIsLoadingStep] = useState<boolean>(false);
   const [isApproved, setIsApproved] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (approved) setIsApproved(approved);
-    return () => {
-      setIsApproved(false);
-    };
-  }, [approved]);
-
-  function handleNextStep() {
+  function handleNextStep(isApproved: boolean) {
     if (currentStep === 2) return;
+    console.log(isApproved);
     if (isApproved) {
-      const current = currentStep;
       setIsLoadingStep(true);
       setTimeout(() => {
-        setCurrentStep((prev: any) => prev + 1);
+        setCurrentStep((prevStep: number) => prevStep + 1);
         setIsLoadingStep(false);
+        setIsApproved(false);
       }, 1200);
     }
   }
   function handlePreviousStep() {
     if (currentStep === 0) return;
-    const current = currentStep;
-
+    setIsApproved(false);
     setTimeout(() => {
-      setCurrentStep((prev: any) => prev - 1);
+      setCurrentStep((prevStep: number) => prevStep - 1);
     }, 600);
   }
 

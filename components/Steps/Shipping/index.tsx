@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EmailInput from "../../Inputs/EmailInput";
 import CardInformation from "../../CardInformation";
-
 import CountryInput from "../../Inputs/CountryInput";
 import { countryOptions } from "../utils";
+import useSteps from "..";
 
 function Shipping() {
-  const handleSelectCountry = (country: any) => {
-    console.log("Selected country:", country);
-  };
+  const handleSelectCountry = (country: any) => {};
 
   return (
     <section className="w-full 2xl:px-32" id="shipping">

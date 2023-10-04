@@ -10,11 +10,15 @@ const stepValues = [0, 1, 2] as const;
 
 export type StepValue = typeof stepValues[number];
 
+export type StepProps = {
+    isCurrentApproved: (isStepApproved: boolean) => void;
+}
+
 // Components que cada step vai retornar
 
 type TSteps = {
     id: number,
-    component: React.ReactNode
+    component: React.ReactNode | null,
     button_text: string | null
 }
 
