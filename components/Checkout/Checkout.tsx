@@ -1,18 +1,33 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FiChevronLeft } from "react-icons/fi";
 import CheckoutSteps from "../CheckoutSteps/";
 import { steps } from "../Steps/utils";
 import useSteps from "../Steps";
-import CustomButton from "../Buttons/CustomButton/CustomButton";
+import CheckoutButton from "../Buttons/CheckoutButton";
 import Container from "../Container";
 import Loader from "../Loader";
 
 export default function Checkout() {
-  const { handlePreviousStep, handleNextStep, currentStep, isLoadingStep } =
-    useSteps();
+  const [isCheckoutApproved, setIsCheckoutApproved] = useState<boolean>(false);
 
-  useEffect(() => {}, []);
+  const {
+    handlePreviousStep,
+    handleNextStep,
+    currentStep,
+    isLoadingStep,
+    isApproved,
+  } = useSteps({ approved: isCheckoutApproved });
+
+  useEffect(() => {
+    if (isApproved) setIsCheckoutApproved(isApproved);
+    const timed = setTimeout(() => {
+      setIsCheckoutApproved(false);
+    }, 1000);
+    return () => {
+      clearTimeout(timed);
+    };
+  }, [isApproved]);
 
   return (
     <section className="w-full justify-center">
@@ -29,8 +44,8 @@ export default function Checkout() {
         {steps && !isLoadingStep ? steps[currentStep].component : <Loader />}
         <div className="w-full 2xl:px-32 py-8">
           {steps[currentStep].button_text && (
-            <CustomButton
-              clicked={isLoadingStep}
+            <CheckoutButton
+              approved={isLoadingStep}
               onClick={() => handleNextStep()}
               text={steps[currentStep].button_text}
             />

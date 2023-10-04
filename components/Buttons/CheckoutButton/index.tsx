@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 
-type TCustomButton = {
+type TCheckoutButton = {
   onClick: () => void;
   text: string | null;
-  clicked: boolean;
+  approved: boolean;
 };
 
-function CustomButton({ onClick, text, clicked }: TCustomButton) {
+function CheckoutButton({ onClick, text, approved }: TCheckoutButton) {
   const [isLoading, setisLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    if (clicked) setisLoading(true);
+    if (approved) setisLoading(true);
     return () => {
       setisLoading(false);
     };
-  }, [clicked]);
+  }, [approved]);
 
   return (
-    <button className="h-16 rounded-lg w-full  bg-gray-800" onClick={onClick}>
+    <button
+      className="h-16 rounded-lg w-full active:scale-95 transition-all duration-75 bg-gray-800"
+      onClick={onClick}
+    >
       {isLoading ? (
         <ClipLoader color="#8e78ff" loading={true} size={20} className="mt-2" />
       ) : (
@@ -28,4 +31,4 @@ function CustomButton({ onClick, text, clicked }: TCustomButton) {
   );
 }
 
-export default CustomButton;
+export default CheckoutButton;
