@@ -12,14 +12,15 @@ function useSteps() {
     setTimeout(() => {
       setCurrentStep((prev: any) => prev + 1);
       setIsLoadingStep(false);
-    }, 400);
+    }, 1200);
   }
   function handlePreviousStep() {
     if (currentStep === 0) return;
     const current = currentStep;
+
     setTimeout(() => {
       setCurrentStep((prev: any) => prev - 1);
-    }, 400);
+    }, 600);
   }
 
   return { handleNextStep, currentStep, handlePreviousStep, isLoadingStep };

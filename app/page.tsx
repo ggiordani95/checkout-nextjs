@@ -1,11 +1,9 @@
-import Checkout from "@/components/Checkout/Checkout";
-import LeftSideCheckout from "@/components/LeftSideCheckout";
+import HomeScreen from "@/screens/HomeScreen";
 
 export default function Home() {
   return (
-    <main className="flex bg-white min-h-screen flex-col sm:flex-row">
-      <LeftSideCheckout />
-      <Checkout />
+    <main>
+      <HomeScreen />
     </main>
   );
 }

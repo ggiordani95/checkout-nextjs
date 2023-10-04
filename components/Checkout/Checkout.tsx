@@ -1,18 +1,21 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { FiChevronLeft } from "react-icons/fi";
 import CheckoutSteps from "../CheckoutSteps/";
 import { steps } from "../Steps/utils";
 import useSteps from "../Steps";
 import CustomButton from "../Buttons/CustomButton/CustomButton";
 import Container from "../Container";
+import Loader from "../Loader";
 
 export default function Checkout() {
   const { handlePreviousStep, handleNextStep, currentStep, isLoadingStep } =
     useSteps();
 
+  useEffect(() => {}, []);
+
   return (
-    <section className="w-full">
+    <section className="w-full justify-center">
       <Container>
         {currentStep > 0 && (
           <button
@@ -23,7 +26,7 @@ export default function Checkout() {
           </button>
         )}
         <CheckoutSteps currentStep={currentStep} />
-        {steps && steps[currentStep].component}
+        {steps && !isLoadingStep ? steps[currentStep].component : <Loader />}
         <div className="w-full 2xl:px-32 py-8">
           {steps[currentStep].button_text && (
             <CustomButton
