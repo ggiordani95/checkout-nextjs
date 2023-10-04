@@ -17,14 +17,14 @@ export default function Checkout() {
         {currentStep > 0 && (
           <button
             onClick={handlePreviousStep}
-            className="h-10 w-10 rounded-xl bg-gray-700 absolute top-6 md:top-12 flex justify-center items-center"
+            className="h-10 w-10 hover:scale-110 transition-all duration-50 rounded-xl bg-gray-700 absolute top-6 md:top-12 flex justify-center items-center"
           >
             <FiChevronLeft size={22} color={"white"} className="mr-1" />
           </button>
         )}
         <CheckoutSteps currentStep={currentStep} />
         {steps && steps[currentStep].component}
-        <div className="w-full 2xl:px-32 py-12">
+        <div className="w-full 2xl:px-32 py-8">
           {steps[currentStep].button_text && (
             <CustomButton
               clicked={isLoadingStep}

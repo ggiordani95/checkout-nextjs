@@ -22,7 +22,7 @@ export const steps: Array<TSteps> = [
     {
         id: 1,
         component: React.createElement(Personal),
-        button_text: 'Confirmar dados'
+        button_text: 'Confirmar email'
     },
     {
         id: 2,
