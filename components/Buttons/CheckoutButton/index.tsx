@@ -21,6 +21,7 @@ function CheckoutButton({ onClick, text, approved }: TCheckoutButton) {
     <button
       className="h-16 rounded-lg w-full active:scale-95 transition-all duration-75 bg-gray-800"
       onClick={onClick}
+      disabled={isLoading}
     >
       {isLoading ? (
         <ClipLoader color="#8e78ff" loading={true} size={20} className="mt-2" />

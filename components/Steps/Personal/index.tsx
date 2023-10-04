@@ -2,7 +2,6 @@ import React from "react";
 import apple from "../../../public/assets/apple.jpg";
 import Image from "next/image";
 import EmailInput from "@/components/Inputs/EmailInput";
-import useSteps from "..";
 
 function Personal() {
   return (

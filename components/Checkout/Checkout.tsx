@@ -7,6 +7,8 @@ import useSteps from "../Steps";
 import CheckoutButton from "../Buttons/CheckoutButton";
 import Container from "../Container";
 import Loader from "../Loader";
+import useCurrentComponent from "./useCurrentComponent";
+import useConfirmCheckout from "./useConfirmInputs";
 
 export default function Checkout() {
   const [isCheckoutApproved, setIsCheckoutApproved] = useState<boolean>(false);
@@ -14,11 +16,15 @@ export default function Checkout() {
   const { handlePreviousStep, handleNextStep, currentStep, isLoadingStep } =
     useSteps();
 
-  const CurrentStepComponent = steps?.[currentStep]?.component;
+  const CurrentStepComponent = useCurrentComponent({
+    currentStep,
+    steps,
+  });
+  const useBae = useConfirmCheckout({ currentStep: currentStep });
 
   useEffect(() => {
-    setIsCheckoutApproved(isCheckoutApproved);
-  }, [isCheckoutApproved]);
+    setIsCheckoutApproved(useBae.isValid);
+  }, [useBae.isValid]);
 
   return (
     <section className="w-full justify-center">
@@ -34,13 +40,13 @@ export default function Checkout() {
         <CheckoutSteps currentStep={currentStep} />
         {steps && !isLoadingStep ? CurrentStepComponent : <Loader />}
         <div className="w-full 2xl:px-32 py-8">
-          {steps[currentStep].button_text && (
+          {steps[currentStep]?.button_text && (
             <CheckoutButton
               approved={isLoadingStep}
               onClick={() => {
                 handleNextStep(isCheckoutApproved);
               }}
-              text={steps[currentStep].button_text}
+              text={steps[currentStep].button_text ?? ""}
             />
           )}
         </div>

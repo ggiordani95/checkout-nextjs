@@ -3,7 +3,6 @@ import EmailInput from "../../Inputs/EmailInput";
 import CardInformation from "../../CardInformation";
 import CountryInput from "../../Inputs/CountryInput";
 import { countryOptions } from "../utils";
-import useSteps from "..";
 
 function Shipping() {
   const handleSelectCountry = (country: any) => {};
