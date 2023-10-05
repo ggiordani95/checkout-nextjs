@@ -4,6 +4,7 @@ import CardInformation from "../../CardInformation";
 import CountryInput from "../../Inputs/CountryInput";
 import { countryOptions } from "../utils";
 import { useContextSteps } from "@/context/useContextInputs/useContextSteps";
+import NameInput from "@/components/Inputs/NameInput";
 
 function Shipping() {
   const handleSelectCountry = (country: any) => {};
@@ -12,17 +13,14 @@ function Shipping() {
 
   const context = useContextSteps();
 
+  console.log(context.isValidInputs);
   return (
     <section className="w-full 2xl:px-32" id="shipping">
       <div className="my-8">
-        <CardInformation
-          confirmed={(value) => {
-            setConfirmedInputs({ ...confirmedInputs, card: value });
-          }}
-        />
+        <CardInformation confirmed={true} />
       </div>
       <div className="my-8">
-        <EmailInput
+        <NameInput
           title={"Nome no cartão"}
           placeholder="Digite o nome impresso no cartão..."
           confirmed={(value) => {

@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TDateCardInput } from "./types";
+import { useContextSteps } from "@/context/useContextInputs/useContextSteps";
 
 function DateCardInput({ placeholder, inputTailwind, id }: TDateCardInput) {
   const [inputValue, setInputValue] = useState("");
+
+  const context = useContextSteps();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let result = event.target.value;
@@ -10,6 +13,9 @@ function DateCardInput({ placeholder, inputTailwind, id }: TDateCardInput) {
     if (result.length > 2) {
       const modifiedValue = result.slice(0, 2) + "/" + result.slice(2);
       result = modifiedValue;
+      context.setterValidInputs(true, "date");
+    } else {
+      context.setterValidInputs(false, "date");
     }
     setInputValue(result);
   };

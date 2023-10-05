@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { TCVCInput } from "./types";
+import { useContextSteps } from "@/context/useContextInputs/useContextSteps";
 
 function CVCInput({ placeholder, inputTailwind, id }: TCVCInput) {
   const [inputValue, setInputValue] = useState("");
-
+  const context = useContextSteps();
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const result = event.target.value.replace(/\D/g, "");
+    if (result.length == 3) {
+      context.setterValidInputs(true, "cvc");
+    } else {
+      context.setterValidInputs(false, "cvc");
+    }
     setInputValue(result);
   };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import handleChange from "./utils";
 import { IEmailInput, TIsError } from "./types";
+import { useContextSteps } from "@/context/useContextInputs/useContextSteps";
 
 function EmailInput({ ...props }: IEmailInput) {
   const [inputValue, setInputValue] = useState<string>("");
@@ -8,6 +8,30 @@ function EmailInput({ ...props }: IEmailInput) {
     message: false,
     valid: false,
   });
+  const context = useContextSteps();
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    setInputValue: React.Dispatch<React.SetStateAction<string>>,
+    setIsError: React.Dispatch<React.SetStateAction<TIsError>>
+  ) => {
+    const result = event.target.value.toLowerCase();
+
+    if (result.length === 0) {
+      setIsError({ message: false, valid: false });
+    }
+    setInputValue(result);
+    if (result.length > 6) {
+      if (result.includes("@")) {
+        setIsError({ message: false, valid: true });
+        context.setterValidInputs(true, "email");
+      } else {
+        setIsError({ message: true, valid: false });
+      }
+    } else {
+      context.setterValidInputs(false, "email");
+      setIsError({ message: false, valid: false });
+    }
+  };
 
   return (
     <div className="w-full">
@@ -19,12 +43,7 @@ function EmailInput({ ...props }: IEmailInput) {
         value={inputValue}
         placeholder={props.placeholder}
         onChange={(event) => {
-          let isHandleApproved = handleChange(event, setInputValue, setIsError);
-          if (isHandleApproved === "approved") {
-            props.confirmed(true);
-          } else {
-            props.confirmed(false);
-          }
+          handleChange(event, setInputValue, setIsError);
         }}
         className="border-black text-black text-md border-2 border-opacity-10 shadow-md w-full h-14 pl-4 focus:outline-blue-600 rounded-lg"
       />

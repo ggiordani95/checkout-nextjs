@@ -21,12 +21,7 @@ function Personal() {
         </div>
 
         <div className="py-12 pb-16 border-b-slate-200 border-t-0 border-l-0 border-r-0 border">
-          <EmailInput
-            placeholder="Digite seu email de compra..."
-            confirmed={(value) => {
-              context.setterValidInputs(value, "email");
-            }}
-          />
+          <EmailInput placeholder="Digite seu email de compra..." />
         </div>
       </div>
     </div>

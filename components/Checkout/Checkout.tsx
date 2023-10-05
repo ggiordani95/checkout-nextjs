@@ -28,7 +28,7 @@ export default function Checkout() {
     isValidComp:
       currentStep == 0
         ? context?.isValidInputs.email
-        : context?.isValidInputs.card,
+        : context?.verifyCheckoutInputs(),
   });
 
   useEffect(() => {
@@ -43,6 +43,7 @@ export default function Checkout() {
           <button
             onClick={() => {
               handlePreviousStep();
+              context.setterValidInputs(false, "email");
             }}
             className="h-10 w-10 hover:scale-110 transition-all duration-50 rounded-xl bg-gray-700 absolute top-6 md:top-12 flex justify-center items-center"
           >
@@ -58,7 +59,7 @@ export default function Checkout() {
               approved={
                 currentStep == 0
                   ? context?.isValidInputs.email
-                  : context?.isValidInputs.card
+                  : context?.verifyCheckoutInputs()
               }
               onClick={() => {
                 handleNextStep(isCheckoutApproved);

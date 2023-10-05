@@ -1,8 +1,9 @@
 import React, { FC, useState } from "react";
 import Image from "next/image";
 import { CountryOption, ICountryInput } from "./types";
+import { useContextSteps } from "@/context/useContextInputs/useContextSteps";
 
-function CountryInput({ options, title }: ICountryInput) {
+function CountryInput({ options, title, confirmed }: ICountryInput) {
   const [isOpen, setIsOpen] = useState(false);
   const [alreadyOpened, setIsAlreadyOpened] = useState(false);
   const [selectedOption, setSelectedOption] = useState<CountryOption | null>(
@@ -14,6 +15,8 @@ function CountryInput({ options, title }: ICountryInput) {
     setIsOpen(false);
     setIsAlreadyOpened(true);
   };
+
+  const context = useContextSteps();
 
   return (
     <div className="relative w-full">
@@ -49,7 +52,10 @@ function CountryInput({ options, title }: ICountryInput) {
           {options.map((option: any) => (
             <li
               key={option.code}
-              onClick={() => handleSelect(option)}
+              onClick={() => {
+                handleSelect(option);
+                context.setterValidInputs(true, "country");
+              }}
               className="px-4 gap-2 flex items-center py-2  cursor-pointer text-zinc-400"
             >
               <Image

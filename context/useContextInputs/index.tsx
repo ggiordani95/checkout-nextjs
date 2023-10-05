@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { StepsContext } from "./useContextSteps";
 
-export const StepsProvider = ({ children }: any) => {
+export const StepsProvider = ({ children }: { children: React.ReactNode }) => {
   const [isValidInputs, setIsValidInputs] = useState<Object>({
     email: false,
     card: false,
@@ -29,7 +29,11 @@ export const StepsProvider = ({ children }: any) => {
 
   return (
     <StepsContext.Provider
-      value={{ setterValidInputs, isValidInputs, verifyCheckoutInputs }}
+      value={{
+        setterValidInputs,
+        isValidInputs,
+        verifyCheckoutInputs,
+      }}
     >
       {children}
     </StepsContext.Provider>
