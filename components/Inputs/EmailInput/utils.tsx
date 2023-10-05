@@ -10,7 +10,7 @@ const handleChange = (
     setIsError({ message: false, valid: false });
   }
   setInputValue(result);
-  if (result.length > 3) {
+  if (result.length > 6) {
     if (result.includes("@")) {
       setIsError({ message: false, valid: true });
       return "approved";

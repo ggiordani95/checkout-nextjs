@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DateCardInput from "../Inputs/DateCardInput";
 import CVCInput from "../Inputs/CVCInput";
 import CardNumber from "../Inputs/CardNumber";
 
-function CardInformation() {
+function CardInformation({ confirmed = true }: any) {
   return (
     <>
       <p className="text-sm text-zinc-600 font-medium bg-white p-1 pl-0">

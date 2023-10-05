@@ -25,7 +25,10 @@ export default function Checkout() {
 
   const isComponentApproves = useConfirmInputs({
     currentStep: currentStep,
-    isValidComp: context.isValidInputs,
+    isValidComp:
+      currentStep == 0
+        ? context?.isValidInputs.email
+        : context?.isValidInputs.card,
   });
 
   useEffect(() => {
@@ -38,7 +41,9 @@ export default function Checkout() {
       <Container>
         {currentStep === 1 && (
           <button
-            onClick={handlePreviousStep}
+            onClick={() => {
+              handlePreviousStep();
+            }}
             className="h-10 w-10 hover:scale-110 transition-all duration-50 rounded-xl bg-gray-700 absolute top-6 md:top-12 flex justify-center items-center"
           >
             <FiChevronLeft size={22} color={"white"} className="mr-1" />
@@ -50,7 +55,11 @@ export default function Checkout() {
           {steps[currentStep]?.button_text && (
             <CheckoutButton
               loading={isLoadingStep}
-              approved={context.isValidInputs}
+              approved={
+                currentStep == 0
+                  ? context?.isValidInputs.email
+                  : context?.isValidInputs.card
+              }
               onClick={() => {
                 handleNextStep(isCheckoutApproved);
               }}

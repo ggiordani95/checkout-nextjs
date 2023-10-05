@@ -8,4 +8,5 @@ export type CountryOption = {
     options: CountryOption[];
     onSelect: (option: CountryOption) => void;
     title: string;
+    confirmed: (isConfirmed: boolean) => void;
 }

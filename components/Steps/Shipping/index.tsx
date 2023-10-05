@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import EmailInput from "../../Inputs/EmailInput";
 import CardInformation from "../../CardInformation";
 import CountryInput from "../../Inputs/CountryInput";
@@ -8,23 +8,25 @@ import { useContextSteps } from "@/context/useContextInputs/useContextSteps";
 function Shipping() {
   const handleSelectCountry = (country: any) => {};
 
-  const context = useContextSteps();
+  const [confirmedInputs, setConfirmedInputs] = useState<Object>({});
 
-  useEffect(() => {
-    context.setterValidInputs(false);
-  }, [context]);
+  const context = useContextSteps();
 
   return (
     <section className="w-full 2xl:px-32" id="shipping">
       <div className="my-8">
-        <CardInformation />
+        <CardInformation
+          confirmed={(value) => {
+            setConfirmedInputs({ ...confirmedInputs, card: value });
+          }}
+        />
       </div>
       <div className="my-8">
         <EmailInput
           title={"Nome no cartão"}
           placeholder="Digite o nome impresso no cartão..."
           confirmed={(value) => {
-            context.setterValidInputs(value);
+            setConfirmedInputs({ ...confirmedInputs, email: value });
           }}
         />
       </div>
@@ -33,6 +35,9 @@ function Shipping() {
           title={"País ou Região"}
           options={countryOptions}
           onSelect={handleSelectCountry}
+          confirmed={(value) => {
+            setConfirmedInputs({ ...confirmedInputs, country: value });
+          }}
         />
       </div>
     </section>

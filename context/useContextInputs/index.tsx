@@ -4,14 +4,33 @@ import React, { useState } from "react";
 import { StepsContext } from "./useContextSteps";
 
 export const StepsProvider = ({ children }: any) => {
-  const [isValidInputs, setIsValidInputs] = useState<boolean>(false);
+  const [isValidInputs, setIsValidInputs] = useState<Object>({
+    email: false,
+    card: false,
+    date: false,
+    cvc: false,
+    name: false,
+    country: false,
+  });
 
-  function setterValidInputs(isValid: boolean) {
-    setIsValidInputs(isValid);
+  function setterValidInputs(isValid: boolean, input: string) {
+    setIsValidInputs((prevState) => ({
+      ...prevState,
+      [input]: isValid,
+    }));
+  }
+
+  function verifyCheckoutInputs() {
+    const verifyingObject = Object.values(isValidInputs).every(
+      (value) => value === true
+    );
+    return verifyingObject;
   }
 
   return (
-    <StepsContext.Provider value={{ setterValidInputs, isValidInputs }}>
+    <StepsContext.Provider
+      value={{ setterValidInputs, isValidInputs, verifyCheckoutInputs }}
+    >
       {children}
     </StepsContext.Provider>
   );

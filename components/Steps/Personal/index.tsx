@@ -24,7 +24,7 @@ function Personal() {
           <EmailInput
             placeholder="Digite seu email de compra..."
             confirmed={(value) => {
-              context.setterValidInputs(value);
+              context.setterValidInputs(value, "email");
             }}
           />
         </div>
