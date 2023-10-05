@@ -43,7 +43,7 @@ export default function Checkout() {
           <button
             onClick={() => {
               handlePreviousStep();
-              context.setterValidInputs(false, "email");
+              context.denyingAllInputs();
             }}
             className="h-10 w-10 hover:scale-110 transition-all duration-50 rounded-xl bg-gray-700 absolute top-6 md:top-12 flex justify-center items-center"
           >

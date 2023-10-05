@@ -27,12 +27,21 @@ export const StepsProvider = ({ children }: { children: React.ReactNode }) => {
     return verifyingObject;
   }
 
+  function denyingAllInputs() {
+    const allFalse = Object.keys(isValidInputs).reduce((acc: any, key) => {
+      acc[key] = false;
+      return acc;
+    }, {});
+    setIsValidInputs(allFalse);
+  }
+
   return (
     <StepsContext.Provider
       value={{
         setterValidInputs,
         isValidInputs,
         verifyCheckoutInputs,
+        denyingAllInputs,
       }}
     >
       {children}
