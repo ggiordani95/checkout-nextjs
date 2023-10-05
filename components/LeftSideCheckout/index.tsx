@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import airpods from "../../public/assets/airpods.png";
 import useSocials from "./utils/useIcons";

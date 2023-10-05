@@ -2,12 +2,10 @@ import React from "react";
 import apple from "../../../public/assets/apple.jpg";
 import Image from "next/image";
 import EmailInput from "@/components/Inputs/EmailInput";
-import { useContextSteps } from "@/context/useContextInputs/useContextSteps";
 
 function Personal() {
-  const context = useContextSteps();
   return (
-    <div className="w-full h-full 2xl:px-32 py-12">
+    <section className="w-full h-full 2xl:px-32 py-12" id="personal">
       <div className="flex flex-col  h-full justify-start">
         <div className="flex flex-row items-center justify-center gap-4 border-b-slate-200 border-t-0 border-l-0 border-r-0 py-8 border">
           <Image
@@ -24,7 +22,7 @@ function Personal() {
           <EmailInput placeholder="Digite seu email de compra..." />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

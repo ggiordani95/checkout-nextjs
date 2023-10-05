@@ -1,3 +1,5 @@
+
+import Confirmation from "./Confirmation";
 import Personal from "./Personal";
 import Shipping from "./Shipping"
 import React from 'react'
@@ -14,27 +16,29 @@ export type TSteps = {
     id: number,
     component: React.ReactNode | null,
     button_text: string | null,
-    validInputs: boolean
+}
+
+export enum Step {
+    Personal = 1,
+    Shipping = 2,
+    Confirmation = 3,
 }
 
 export const steps: Array<TSteps> = [
     {
-        id: 1,
+        id: Step.Personal,
         component: React.createElement(Personal),
         button_text: 'Confirmar email',
-        validInputs: true,
     },
     {
-        id: 2,
+        id: Step.Shipping,
         component: React.createElement(Shipping),
         button_text: 'Pagar R$250,00',
-        validInputs: true
     },
     {
-        id: 3,
-        component: null,
+        id: Step.Confirmation,
+        component: React.createElement(Confirmation),
         button_text: null,
-        validInputs: false
     }
 ]
 

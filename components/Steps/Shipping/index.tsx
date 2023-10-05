@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import EmailInput from "../../Inputs/EmailInput";
 import CardInformation from "../../CardInformation";
 import CountryInput from "../../Inputs/CountryInput";
 import { countryOptions } from "../utils";
-import { useContextSteps } from "@/context/useContextInputs/useContextSteps";
 import NameInput from "@/components/Inputs/NameInput";
 
 function Shipping() {
@@ -11,9 +9,6 @@ function Shipping() {
 
   const [confirmedInputs, setConfirmedInputs] = useState<Object>({});
 
-  const context = useContextSteps();
-
-  console.log(context.isValidInputs);
   return (
     <section className="w-full 2xl:px-32" id="shipping">
       <div className="my-8">

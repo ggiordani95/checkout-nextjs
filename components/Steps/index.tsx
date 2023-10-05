@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { StepValue } from "./utils";
+import { Step, StepValue } from "./utils";
 
 function useSteps() {
   const [currentStep, setCurrentStep] = useState<StepValue | number>(0);
@@ -7,7 +7,7 @@ function useSteps() {
   const [isApproved, setIsApproved] = useState<boolean>(false);
 
   function handleNextStep(isApproved: boolean) {
-    if (currentStep === 2) return;
+    if (currentStep === Step.Confirmation) return;
 
     if (isApproved) {
       setIsLoadingStep(true);
@@ -19,7 +19,7 @@ function useSteps() {
     }
   }
   function handlePreviousStep() {
-    if (currentStep === 0) return;
+    if (currentStep < Step.Personal) return;
     setIsApproved(false);
     setCurrentStep((prevStep: number) => prevStep - 1);
   }

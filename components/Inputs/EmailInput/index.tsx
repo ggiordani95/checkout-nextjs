@@ -8,6 +8,7 @@ function EmailInput({ ...props }: IEmailInput) {
     message: false,
     valid: false,
   });
+
   const context = useContextSteps();
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -24,6 +25,7 @@ function EmailInput({ ...props }: IEmailInput) {
       if (result.includes("@")) {
         setIsError({ message: false, valid: true });
         context.setterValidInputs(true, "email");
+        context.sendingEmail(result);
       } else {
         setIsError({ message: true, valid: false });
       }

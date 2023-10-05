@@ -13,6 +13,8 @@ export const StepsProvider = ({ children }: { children: React.ReactNode }) => {
     country: false,
   });
 
+  const [userEmail, setUserEmail] = useState<string>("");
+
   function setterValidInputs(isValid: boolean, input: string) {
     setIsValidInputs((prevState) => ({
       ...prevState,
@@ -35,6 +37,10 @@ export const StepsProvider = ({ children }: { children: React.ReactNode }) => {
     setIsValidInputs(allFalse);
   }
 
+  function sendingEmail(targetEmail: string) {
+    setUserEmail(targetEmail);
+  }
+
   return (
     <StepsContext.Provider
       value={{
@@ -42,6 +48,8 @@ export const StepsProvider = ({ children }: { children: React.ReactNode }) => {
         isValidInputs,
         verifyCheckoutInputs,
         denyingAllInputs,
+        sendingEmail,
+        userEmail,
       }}
     >
       {children}
