@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import EmailInput from "../../Inputs/EmailInput";
 import CardInformation from "../../CardInformation";
 import CountryInput from "../../Inputs/CountryInput";
 import { countryOptions } from "../utils";
+import { useContextSteps } from "@/context/useContextInputs/useContextSteps";
 
 function Shipping() {
   const handleSelectCountry = (country: any) => {};
+
+  const context = useContextSteps();
+
+  useEffect(() => {
+    context.setterValidInputs(false);
+  }, [context]);
 
   return (
     <section className="w-full 2xl:px-32" id="shipping">
@@ -16,6 +23,9 @@ function Shipping() {
         <EmailInput
           title={"Nome no cartão"}
           placeholder="Digite o nome impresso no cartão..."
+          confirmed={(value) => {
+            context.setterValidInputs(value);
+          }}
         />
       </div>
       <div className="my-8">

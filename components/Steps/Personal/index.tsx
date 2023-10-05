@@ -2,8 +2,10 @@ import React from "react";
 import apple from "../../../public/assets/apple.jpg";
 import Image from "next/image";
 import EmailInput from "@/components/Inputs/EmailInput";
+import { useContextSteps } from "@/context/useContextInputs/useContextSteps";
 
 function Personal() {
+  const context = useContextSteps();
   return (
     <div className="w-full h-full 2xl:px-32 py-12">
       <div className="flex flex-col  h-full justify-start">
@@ -19,7 +21,12 @@ function Personal() {
         </div>
 
         <div className="py-12 pb-16 border-b-slate-200 border-t-0 border-l-0 border-r-0 border">
-          <EmailInput placeholder="Digite seu email de compra..." />
+          <EmailInput
+            placeholder="Digite seu email de compra..."
+            confirmed={(value) => {
+              context.setterValidInputs(value);
+            }}
+          />
         </div>
       </div>
     </div>

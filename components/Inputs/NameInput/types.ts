@@ -1,4 +1,4 @@
-export type IEmailInput = {
+export type INameInputInput = {
     title?: string;
     placeholder?: string;
     confirmed: (e:boolean) => void;

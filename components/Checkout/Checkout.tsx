@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FiChevronLeft } from "react-icons/fi";
 import CheckoutSteps from "../CheckoutSteps/";
 import { steps } from "../Steps/utils";
@@ -8,7 +8,8 @@ import CheckoutButton from "../Buttons/CheckoutButton";
 import Container from "../Container";
 import Loader from "../Loader";
 import useCurrentComponent from "./useCurrentComponent";
-import useConfirmCheckout from "./useConfirmInputs";
+import useConfirmInputs from "./useConfirmInputs";
+import { StepsContext } from "@/context/useContextInputs/useContextSteps";
 
 export default function Checkout() {
   const [isCheckoutApproved, setIsCheckoutApproved] = useState<boolean>(false);
@@ -20,16 +21,22 @@ export default function Checkout() {
     currentStep,
     steps,
   });
-  const useBae = useConfirmCheckout({ currentStep: currentStep });
+  const context = useContext(StepsContext);
+
+  const isComponentApproves = useConfirmInputs({
+    currentStep: currentStep,
+    isValidComp: context.isValidInputs,
+  });
 
   useEffect(() => {
-    setIsCheckoutApproved(useBae.isValid);
-  }, [useBae.isValid]);
+    if (isComponentApproves === undefined) return;
+    setIsCheckoutApproved(isComponentApproves);
+  }, [isComponentApproves]);
 
   return (
     <section className="w-full justify-center">
       <Container>
-        {currentStep > 0 && (
+        {currentStep === 1 && (
           <button
             onClick={handlePreviousStep}
             className="h-10 w-10 hover:scale-110 transition-all duration-50 rounded-xl bg-gray-700 absolute top-6 md:top-12 flex justify-center items-center"
@@ -42,7 +49,8 @@ export default function Checkout() {
         <div className="w-full 2xl:px-32 py-8">
           {steps[currentStep]?.button_text && (
             <CheckoutButton
-              approved={isLoadingStep}
+              loading={isLoadingStep}
+              approved={context.isValidInputs}
               onClick={() => {
                 handleNextStep(isCheckoutApproved);
               }}

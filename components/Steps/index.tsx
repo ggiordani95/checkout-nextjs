@@ -8,7 +8,7 @@ function useSteps() {
 
   function handleNextStep(isApproved: boolean) {
     if (currentStep === 2) return;
-    console.log(isApproved);
+
     if (isApproved) {
       setIsLoadingStep(true);
       setTimeout(() => {
@@ -21,9 +21,7 @@ function useSteps() {
   function handlePreviousStep() {
     if (currentStep === 0) return;
     setIsApproved(false);
-    setTimeout(() => {
-      setCurrentStep((prevStep: number) => prevStep - 1);
-    }, 600);
+    setCurrentStep((prevStep: number) => prevStep - 1);
   }
 
   return {

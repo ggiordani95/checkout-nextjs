@@ -1,12 +1,20 @@
-import { steps } from "../Steps/utils";
+import { useEffect, useState } from "react";
 
 type TUseConfirmCheckout = {
   currentStep: number;
+  isValidComp?: boolean;
 };
 
-function useConfirmCheckout({ currentStep }: TUseConfirmCheckout) {
-  let isValid = steps?.[currentStep]?.validInputs;
-  return { isValid };
+function useConfirmInputs({ currentStep, isValidComp }: TUseConfirmCheckout) {
+  const [isValidInputs, setIsValidInputs] = useState<boolean | undefined>(
+    false
+  );
+
+  useEffect(() => {
+    setIsValidInputs(isValidComp);
+  }, [isValidComp]);
+
+  return isValidInputs;
 }
 
-export default useConfirmCheckout;
+export default useConfirmInputs;
