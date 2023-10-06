@@ -1,4 +1,3 @@
-![image](https://github.com/ggiordani95/checkout-nextjs/assets/94162641/5befacd7-c692-4bf2-8761-4b761ccbf496)
 
 
 ## Abrindo o checkout:
@@ -13,3 +12,4 @@ npm run dev
 Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
 
 
+![image](https://github.com/ggiordani95/checkout-nextjs/assets/94162641/27ba3336-71d4-4309-a2d2-8fa3068e4fa9)
