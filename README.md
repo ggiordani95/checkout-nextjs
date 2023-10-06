@@ -10,3 +10,4 @@ npm run dev
 
 Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
 
+![image](https://github.com/ggiordani95/checkout-nextjs/assets/94162641/5befacd7-c692-4bf2-8761-4b761ccbf496)
