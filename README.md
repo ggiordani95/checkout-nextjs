@@ -2,7 +2,7 @@
 
 ## Abrindo o checkout:
 
-Instale o npm e abra o servidor pelo terminal com o comando:
+Instale o npm e abra o servidor pelo terminal com os comandos:
 
 ```bash
 npm install
